@@ -9,6 +9,9 @@ app = Flask(__name__)
 @app.route("/contact/")
 def MaPremiereAPI():
     return "<h2>Ma page de contact</h2>" #page contact
+  @app.route("/rapport/")
+def mongraphique():
+    return render_template("graphique.html") #GRAPHIC
 
 @app.route('/tawarano/')
 def meteo():
@@ -40,9 +43,7 @@ def meteo():
     return jsonify(results=results) #HISTOGRAMME
 
 
-@app.route("/rapport/")
-def mongraphique():
-    return render_template("graphique.html") #GRAPHIC
+
 
 
 @app.route('/')
