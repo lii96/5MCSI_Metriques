@@ -8,9 +8,6 @@ import sqlite3
 app = Flask(__name__)                                                                                                                  
 
 
-@app.route("/contact/")
-def contact():
-    return render_template('contact.html')
 
 
 #Exo 3
@@ -43,6 +40,11 @@ def histogramme():
         results.append([dt_value, temp_day_value])
     return render_template('histogramme.html', results=results) 
     #fin histgramme
+
+@app.route("/contact/")
+def contact():
+    return render_template('contact.html')
+
 @app.route('/')
 def hello_world():
     return render_template('hello.html')
