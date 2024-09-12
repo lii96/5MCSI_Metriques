@@ -42,7 +42,7 @@ def histogramme():
     #fin histgramme
 
 @app.route("/contact/")
-def contact():
+def mapagecontact():
     return render_template('contact.html')
 
 @app.route('/')
