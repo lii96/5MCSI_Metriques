@@ -23,6 +23,10 @@ def meteo():
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
     #Fin de l'exo 3
+#exo 3 1.2
+@app.route("/rapport/")
+def mongraphique():
+    return render_template("graphique.html")
 @app.route('/')
 def hello_world():
     return render_template('hello.html')
