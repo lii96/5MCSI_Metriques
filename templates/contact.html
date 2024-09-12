@@ -5,81 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h2 {
-            text-align: center;
+            background-color: #f0f0f0;
+            background-image: url('https://img.freepik.com/photos-gratuite/ninja-complet-portant-equipement_23-2150961014.jpg'); /* Ajouter une image de fond japonaise */
+            background-size: cover;
+            background-attachment: fixed;
             color: #333;
         }
-        form {
+
+        /* Header */
+        header {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #d8345f; /* Rouge sakura */
+            margin: 0;
+        }
+
+        /* Main Section */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .contact-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center; /* Centre le contenu de la section */
+        }
+
+        .contact-section h2 {
+            font-size: 1.8em;
+            color: #d8345f;
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styles */
+        .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center; /* Centre les éléments du formulaire */
         }
-        label {
+
+        .contact-form label {
+            margin-bottom: 5px;
             font-weight: bold;
-            color: #555;
+            color: #333;
+            text-align: left; /* Aligne le texte des labels à gauche */
+            width: 100%; /* Prend toute la largeur pour rester aligné avec les champs */
         }
-        input, textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-        }
-        textarea {
-            height: 150px;
-            resize: none;
-        }
-        button {
             padding: 10px;
-            background-color: #28a745;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* S'assure que la taille inclut le padding et la bordure */
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #d8345f;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1.1em;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        button:hover {
-            background-color: #218838;
+
+        /* Animation de sabre */
+        .contact-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform: rotate(45deg);
+            transition: left 0.4s ease-out;
         }
-        .footer {
+
+        .contact-form button.clicked::before {
+            left: 100%;
+        }
+
+        .contact-form button.clicked {
+            background-color: #b12947; /* Changement de couleur après la coupe */
+        }
+
+        .contact-form button:hover {
+            background-color: #c7375a;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
-            margin-top: 20px;
-            color: #777;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Contactez-nous</h2>
-        <form action="#" method="post">
-            <label for="first_name">Prénom :</label>
-            <input type="text" id="first_name" name="first_name" placeholder="Entrez votre prénom" required>
+    <header>
+        <h1>Cliquez sur le bouton pour voir l'animation</h1>
+    </header>
 
-            <label for="last_name">Nom :</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Entrez votre nom" required>
+    <main>
+        <section class="contact-section">
+            <h2>Formulaire de Contact</h2>
+            <p>N'hésitez pas à m'envoyer un message !</p>
+            <form class="contact-form" action="#" method="post">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" required>
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" placeholder="Votre message ici..." required></textarea>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
 
-            <button type="submit">Envoyer</button>
-        </form>
-        <div class="footer">
-            <p>Merci de nous avoir contactés !</p>
-        </div>
-    </div>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" id="submit-btn">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Inspiré du Japon</p>
+    </footer>
+
+    <script>
+        document.getElementById("submit-btn").addEventListener("click", function(event) {
+            event.preventDefault(); // Empêche l'envoi immédiat du formulaire
+            this.classList.add("clicked"); // Ajoute la classe qui déclenche l'animation
+
+            setTimeout(() => {
+                this.closest('form').submit(); // Envoie le formulaire après un délai
+            }, 500); // Délai pour laisser l'animation se terminer
+        });
+    </script>
 </body>
 </html>
